@@ -1,0 +1,395 @@
+@import url(./variables.css);
+
+/* ========================================
+   SECCIÓN INTRODUCCIÓN - LUDITAS
+   ======================================== */
+
+/* Reset específico para la sección */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    font-size: 16px;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    background: var(--bg-primary);
+}
+
+/* ========================================
+   SECCIÓN HERO PRINCIPAL
+   ======================================== */
+
+.intro-section {
+    min-height: var(--hero-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: var(--space-4);
+    overflow: hidden;
+}
+
+.intro-container {
+    max-width: var(--container-lg);
+    width: 100%;
+    text-align: center;
+    color: var(--text-light);
+    z-index: 2;
+    position: relative;
+}
+
+/* ========================================
+   HEADER CENITAL
+   ======================================== */
+
+.cenital-header {
+    position: absolute;
+    top: var(--space-6);
+    left: var(--space-6);
+    z-index: 10;
+}
+
+.logo-container {
+    display: inline-block;
+}
+
+.cenital-logo {
+    font-family: var(--font-heading);
+    font-weight: var(--font-medium);
+    font-size: var(--text-4xl);
+    text-decoration: none;
+    transition: var(--transition-fast);
+    letter-spacing: -1px;
+}
+
+.cenital-logo-rojo {
+    color: var(--cenital-red);
+    font-size: 2.5rem;
+}
+.cenital-logo-azul {
+    color: var(--cenital-blue);
+    font-size: var(--text-4xl);
+}
+
+.cenital-logo:hover {
+    color: var(--cenital-red);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+
+.content-wrapper {
+    padding: var(--space-20) 0 var(--space-16) 0;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-8);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp var(--duration-slow) var(--ease-out) 0.5s forwards;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
+    margin-bottom: var(--space-12);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp var(--duration-slow) var(--ease-out) 1s forwards;
+    color: var(--text-brand);
+    font-weight: var(--font-medium);
+}
+
+/* ========================================
+   TYPEWRITER CONTAINER
+   ======================================== */
+
+.typewriter-container {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    animation: fadeIn var(--duration-slow) var(--ease-out) 2s forwards;
+    box-shadow: var(--shadow-2xl);
+}
+
+.typewriter-text {
+    font-family: var(--font-body);
+    font-size: clamp(var(--text-base), 2vw, var(--text-xl));
+    line-height: 1.8;
+    text-align: left;
+    min-height: 120px;
+    color: var(--text-secondary);
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    width: 2px;
+    height: 1.2em;
+    animation: blink 1s infinite;
+}
+
+.typewriter-container .typewriter-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-size: 1.5em;
+    color: var(--cenital-red-alt);
+    transition: color var(--transition-normal);
+}
+
+/* ========================================
+   METADATOS DEL ARTÍCULO
+   ======================================== */
+
+.article-meta {
+    margin-top: var(--space-8);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    opacity: 0;
+    animation: fadeIn var(--duration-slow) var(--ease-out) 3.5s forwards;
+}
+
+.author {
+    color: var(--cenital-red);
+    font-weight: var(--font-semibold);
+}
+
+.date {
+    color: var(--text-secondary);
+    font-weight: var(--font-normal);
+}
+
+/* ========================================
+   INDICADOR DE SCROLL
+   ======================================== */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeIn var(--duration-slow) var(--ease-out) 4s forwards;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.scroll-indicator:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.scroll-text {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+    text-align: center;
+    font-weight: var(--font-medium);
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border: 5px solid var(--cenital-red-alt);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+    animation: bounce 3s infinite;
+    margin: 0 auto;
+}
+
+/* ========================================
+   HINT DE TRANSICIÓN VISUAL
+   ======================================== */
+
+.transition-hint {
+    position: absolute;
+    bottom: var(--space-20);
+    right: var(--space-8);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    opacity: 0;
+    animation: fadeIn var(--duration-slow) var(--ease-out) 5s forwards;
+    font-size: var(--text-2xl);
+}
+
+.arrow-transform {
+    color: var(--cenital-yellow);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%, 50% { 
+        opacity: 1; 
+    }
+    51%, 100% { 
+        opacity: 0; 
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    40% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+    60% {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE FIRST
+   ======================================== */
+
+/* Smartphones en vertical (hasta 576px) */
+@media (max-width: 575px) {
+    .intro-section {
+        padding: var(--space-4) var(--space-3);
+    }
+    
+    .cenital-header {
+        top: var(--space-4);
+        left: var(--space-4);
+    }
+    
+    .cenital-logo {
+        font-size: var(--text-lg);
+    }
+    
+    .content-wrapper {
+        padding: var(--space-16) 0 var(--space-12) 0;
+    }
+    
+    .typewriter-container {
+        padding: var(--space-6);
+        margin: var(--space-6) 0;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .transition-hint {
+        display: none;
+    }
+    
+    .floating-gears {
+        display: none;
+    }
+}
+
+/* Tablets en vertical (576px a 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .content-wrapper {
+        padding: var(--space-20) var(--space-4) var(--space-16) var(--space-4);
+    }
+    
+    .floating-element {
+        opacity: 0.05;
+    }
+}
+
+/* Tablets en horizontal (768px a 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .intro-container {
+        max-width: var(--container-md);
+    }
+    
+    .gear {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .gear::before {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Desktop pequeño (992px a 1199px) */
+@media (min-width: 992px) {
+    .intro-container {
+        max-width: var(--container-lg);
+    }
+    
+    .gear {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .gear::before {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Desktop grande (1200px en adelante) */
+@media (min-width: 1200px) {
+    .intro-container {
+        max-width: var(--container-xl);
+    }
+    
+    .content-wrapper {
+        padding: var(--space-24) 0 var(--space-20) 0;
+    }
+    
+    .floating-element {
+        opacity: 0.15;
+    }
+}
